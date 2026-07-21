@@ -13,5 +13,4 @@ for (const f of fs.readdirSync(dir)) {
   );
 
   fs.writeFileSync(path.join(dir, f), content);
-  console.log("Fixed:", f);
 }

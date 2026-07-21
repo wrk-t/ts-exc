@@ -8,7 +8,10 @@ for (const f of fs.readdirSync(dir)) {
 
   // Remove i18n imports
   content = content.replace(/import \{.*?\} from "nestjs-i18n";?\n?/g, "");
-  content = content.replace(/import \{.*?\} from ".*i18n\.generated.*";?\n?/g, "");
+  content = content.replace(
+    /import \{.*?\} from ".*i18n\.generated.*";?\n?/g,
+    "",
+  );
 
   // Fix success DTOs: this.message = message ?? i18n?.t("errors.X") ?? "X"
   content = content.replace(
@@ -29,5 +32,4 @@ for (const f of fs.readdirSync(dir)) {
   content = content.replace(/\n{3,}/g, "\n\n");
 
   fs.writeFileSync(path.join(dir, f), content);
-  console.log("Fixed:", f);
 }

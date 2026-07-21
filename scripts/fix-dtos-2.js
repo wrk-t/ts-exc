@@ -26,13 +26,9 @@ for (const f of fs.readdirSync(dir)) {
   );
 
   // Pattern 4: just i18n?.t(...) without ?? fallback (partial line)
-  content = content.replace(
-    /i18n\?\.t\("errors\.([^"]+)"\)\s*\?\?/g,
-    "",
-  );
+  content = content.replace(/i18n\?\.t\("errors\.([^"]+)"\)\s*\?\?/g, "");
 
   if (content !== original) {
     fs.writeFileSync(path.join(dir, f), content);
-    console.log("Re-fixed:", f);
   }
 }

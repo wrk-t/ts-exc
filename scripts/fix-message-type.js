@@ -11,15 +11,14 @@ for (const f of fs.readdirSync(dir)) {
   // needs type: String added before the example line
   content = content.replace(
     /(@ApiProperty\(\{\s*\n)(\s*)(example: "[\w\s]+",\s*\n\s*description: "Success message",)/g,
-    '$1$2type: String,\n$2$3',
+    "$1$2type: String,\n$2$3",
   );
 
   // Also fix error DTO message properties
   content = content.replace(
     /(@ApiProperty\(\{\s*\n)(\s*)(example: "[\w\s]+",\s*\n\s*description: "Error message",)/g,
-    '$1$2type: String,\n$2$3',
+    "$1$2type: String,\n$2$3",
   );
 
   fs.writeFileSync(path.join(dir, f), content);
 }
-console.log("Done");

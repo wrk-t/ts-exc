@@ -12,6 +12,7 @@ pnpm add @wrk-t/ts-exc
 ```
 
 Peer dependencies:
+
 - `@nestjs/common` ≥ 10
 - `@nestjs/swagger` ≥ 7
 
@@ -38,12 +39,15 @@ async create(@Body() data: CreateDto) {
 ## Included DTOs
 
 ### Success (plain classes)
+
 `OkDto`, `CreatedDto`, `AcceptedDto`, `NoContentDto`, `FoundDto`, `NotModifiedDto`, `ContinueDto`, `SwitchingProtocolsDto`, `ProcessingDto`, `EarlyhintsDto`, `NonAuthoritativeInformationDto`, `ResetContentDto`, `PartialContentDto`, `MultiStatusDto`, `AlreadyReportedDto`, `MovedPermanentlyDto`, `SeeOtherDto`, `TemporaryRedirectDto`, `PermanentRedirectDto`
 
 ### Errors (extend HttpException)
+
 `BadRequestDto`, `UnauthorizedDto`, `ForbiddenDto`, `NotFoundDto`, `ConflictDto`, `InternalServerErrorDto`, `NotImplementedDto`, `BadGatewayDto`, `ServiceUnavailableDto`, `GatewayTimeoutDto`, `TooManyRequestsDto`, `UnprocessableEntityDto`, `MethodNotAllowedDto`, `NotAcceptableDto`, `RequestTimeoutDto`, `PayloadTooLargeDto`, `UnsupportedMediaTypeDto`, `GoneDto`, `PreconditionFailedDto`, `MisdirectedDto`, `LockedDto`, `FailedDependencyDto`, `PreconditionRequiredDto`, `RequestedRangeNotSatisfiableDto`, `ExpectationFailedDto`, `IAmATeapotDto`, `HttpVersionNotSupportedDto`, `InsufficientStorageDto`, `LoopDetectedDto`, `PaymentRequiredDto`, `ProxyAuthenticationRequiredDto`, `LengthRequiredDto`, `UriTooLongDto`
 
 ### Base classes
+
 `HttpException`, `Exception`, `BaseException`, `ValidationErrorDto`
 
 ## Middleware
@@ -52,7 +56,6 @@ async create(@Body() data: CreateDto) {
 import { BaseException } from "@wrk-t/ts-exc";
 
 BaseException.use((exc, next) => {
-  console.log(`[${exc.name}] ${exc.message}`);
   next();
 });
 ```
