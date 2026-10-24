@@ -1,7 +1,7 @@
 import { ApiProperty } from "@nestjs/swagger";
 
 export class ValidationErrorDto {
-  @ApiProperty({ required: false })
+  @ApiProperty({ type: String, required: false })
   readonly property?: string;
 
   @ApiProperty({ type: [String] })
